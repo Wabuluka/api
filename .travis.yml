@@ -1,13 +1,7 @@
 language: python
 
 python:
-    - 2.7
-    - 3.5
     - 3.6
+install: pip install Flask
 # install dependencies
-before_script:
-  - pip install -r requirements.txt
-
-before_script:
-  - easy_install distribute
-  - pip install -r requirements.txt
+install: pip install -r requirements.txt

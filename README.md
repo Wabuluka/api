@@ -37,3 +37,4 @@ You can find a demo view of how this application works from heroku
 ## Authors
 
 * **Davies Wabuluka**  - [Github](https://github.com/Wabuluka)
+

@@ -5,5 +5,9 @@ python:
     - 3.5
     - 3.6
 # install dependencies
-install: 
-  -pip install -r requirements.txt
+before_script:
+  - pip install -r requirements.txt
+
+before_script:
+  - easy_install distribute
+  - pip install -r requirements.txt

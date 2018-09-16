@@ -1,27 +1,38 @@
-import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+from flask import Flask, jsonify
+
+app =  Flask(__name__)
+orders = [
+    {
+        'orderId': 1,
+        'orderTitle': u'Ghee',
+        'orderDescription': u'Just what i want'
+    },
+    {
+        'orderId': 2,
+        'orderTitle': u'Corn',
+        'orderDescription': u'I love corn too'
+    },
+    {
+        'orderId': 3,
+        'orderTitle': u'Milk',
+        'orderDescription': u'I took lots of milk'
+    }
+]
+#home page of the api
 
 
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
+@app.route('/')
+def index():
+    return "Hello"
+
+#displaying all the orders in the list
 
 
-class ProductionConfig(Config):
-    DEBUG = False
+@app.route('/api/v1/orders', methods=['GET'])
+def getOrders():
+    return jsonify({'orders': orders})
+    #return jsonify({'Orders': [make_public_task(order) for order in orders]})
 
 
-class StagingConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class DevelopmentConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    TESTING = True
+if __name__ == '__main__':
+    app.run(debug=True)

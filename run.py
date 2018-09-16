@@ -42,6 +42,23 @@ def getOrder(id):
     return jsonify({'order': order[0]})
 #put
 
+#implementing the post method
+
+
+@app.route('/api/v1/orders', methods=['POST'])
+def createOrder():
+    if not request.json or not 'orderTitle' in request.json:
+        abort(400)
+
+    order = {
+        'orderId': orders[-1]['orderId']+1,
+        'orderTitle': request.json['orderTitle'],
+        'orderDescription': request.json.get('orderDescription', "")
+    }
+
+    orders.append(order)
+    return jsonify({'order': order}), 201
+
 
 @app.route('/api/v1/orders/<int:id>', methods=['PUT'])
 def updateOrder(id):

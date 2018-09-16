@@ -1,6 +1,7 @@
-# CRUD API - Andela
 
-[![Build Status](https://travis-ci.org/Wabuluka/api.svg?branch=master)](https://travis-ci.org/Wabuluka/api)
+[![Build Status](https://travis-ci.org/Wabuluka/api.svg?branch=master)](https://travis-ci.org/Wabuluka/api) 
+[![Coverage Status](https://coveralls.io/repos/github/Wabuluka/api/badge.svg?branch=master)](https://coveralls.io/github/Wabuluka/api?branch=master)
+# CRUD API - Andela
 
 In this API, I have put together a simple way in which you can create, retrieve, update and delete data from a list
 ## Getting Started

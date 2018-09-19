@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 web: uwsgi uwsgi.ini
-=======
-web: gunicorn run:app
->>>>>>> eb5db8ca289c555d4aa7b53d6a2786e550d3e5d5

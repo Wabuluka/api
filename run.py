@@ -22,9 +22,9 @@ orders = [
 #home page of the api
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    return "Hello"
+    return jsonify({'Welcome':"Hello"})
 
 #displaying all the orders in the list
 

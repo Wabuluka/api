@@ -83,14 +83,6 @@ def updateOrder(id):
 #delete
 
 
-@app.route('/api/v1/orders/<int:id>', methods="DELETE")
-def deleteOrder(id):
-    order = [order for order in orders if order['orderId'] == id]
-    if len(order) == 0:
-        abort(404)
-
-    orders.remove(order[0])
-    return jsonify({'result': True})
     
 if __name__ == '__main__':
     app.run(debug=True)

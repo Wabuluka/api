@@ -5,18 +5,18 @@ app =  Flask(__name__)
 orders = [
     {
         'orderId': 1,
-        'orderTitle': u'Ghee',
-        'orderDescription': u'Just what i want'
+        'orderTitle': 'Ghee',
+        'orderDescription': 'Just what i want'
     },
     {
         'orderId': 2,
-        'orderTitle': u'Corn',
-        'orderDescription': u'I love corn too'
+        'orderTitle': 'Corn',
+        'orderDescription': 'I love corn too'
     },
     {
         'orderId': 3,
-        'orderTitle': u'Milk',
-        'orderDescription': u'I took lots of milk'
+        'orderTitle': 'Milk',
+        'orderDescription': 'I took lots of milk'
     }
 ]
 #home page of the api

@@ -1,10 +1,11 @@
 import unittest
-import run
+from run import app
 
 class HomePageTest(unittest.TestCase):
 
-    def testingHomePageMessage(self):
-        pass
+    def test_getOrders(self):
+        response = run.test_client()
+        self.assertEquals(response.status_code, 200)
 
 
 

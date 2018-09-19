@@ -1,7 +1,10 @@
 import unittest
 import run
 
+class HomePageTest(unittest.TestCase):
 
+    def testingHomePageMessage(self):
+        pass
 
 
 

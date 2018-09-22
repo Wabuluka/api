@@ -5,7 +5,8 @@ import json
 
 class TestRun(unittest.TestCase):
     """Class to test the methods in the run module"""
-    
+    client = run.app.test_client
+
     def test_hello(self):
         #testing if the homepage can be reached
         self.client = run.app.test_client

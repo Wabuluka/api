@@ -8,11 +8,20 @@ In this API, I have put together a simple way in which you can create, retrieve,
 ## Getting Started
 To get start with this API, you will need to set up a few prerequists as I am going to guide below.
 ### Prerequisites
-
-What things you need to install the software and how to install them
+This api must work on any operating system with minimal requirements
 
 ```
-Windows Mac or Linux
+Windows
+```
+```
+Mac
+```
+```
+Linux
+```
+Make sure you have python version 
+```
+python 2.7 and above
 ```
 
 ### Installing

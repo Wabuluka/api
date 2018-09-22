@@ -81,8 +81,6 @@ def updateOrder(id):
         'orderDescription', order[0]['orderDescription'])
     return jsonify({'order': order[0]})
 #delete
-
-
     
 if __name__ == '__main__':
     app.run()

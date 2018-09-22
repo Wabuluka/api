@@ -1,28 +1,21 @@
+import run
 import unittest
-from run import app
+import json
+
 
 class TestRun(unittest.TestCase):
     """Class to test the methods in the run module"""
+    
+    def test_hello(self):
+        #testing if the homepage can be reached
+        pass
 
     def test_getOrders(self):
         #testing if the orders exist
-        pass
-    
-    def test_getOrder(self):
-        """Testing for Getting order per orderId"""
-        pass
+        self.assertFalse(run.getOrders())
+        self.assertEqual(len(run.getOrders()), 0)
+        #rep = client.post('/api/v1/orders', data=json.dumps('orders'))
 
-    def test_createOrder(self):
-        """Testing for CreateOrder"""
-        pass
-
-    def test_updateOrder(self):
-        """Testing for updateOrder"""
-        pass
-
-    def test_deleteOrder(self):
-        """Testing for deleteOrder"""
-        pass
 
 if __name__ == '__main__':
     unittest.main()

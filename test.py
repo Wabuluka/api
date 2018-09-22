@@ -9,6 +9,7 @@ class TestRun(unittest.TestCase):
     def test_hello(self):
         #testing if the homepage can be reached
         self.client = run.app.test_client
+        #self.app = run.app.test_client()
 
     def test_get_orders(self):
         """testing for all orders"""

@@ -1,0 +1,7 @@
+[
+  "test.py::TestRun::test_adding_order",
+  "test.py::TestRun::test_empty_order",
+  "test.py::TestRun::test_get_order",
+  "test.py::TestRun::test_get_orders",
+  "test.py::TestRun::test_hello"
+]

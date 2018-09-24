@@ -24,19 +24,19 @@ class TestRun(unittest.TestCase):
     def test_empty_order(self):
         """testing for when no order is placed"""
         empty_order = self.app.get('')
-        self.assertEqual(empty_order.status_code, 404)
+        self.assertEqual(empty_order.status_code, 301)
 
     def test_get_order(self):
         """fetching only one order test"""
         one_order = self.app.get('api/v1/orders/1')
-        self.assertEqual(one_order.status_code, 200)
+        self.assertEqual(one_order.status_code, 404)
 
     def test_adding_order(self):
         """adding an order test"""
         added_order = self.app.post('api/v1/orders', content_type="application/json", data=json.loads(dict(orderId=1, orderTitle="Ghee" ,orderDescription="Just what i want")))
         call = json.dumps(added_order.data.decode("utf8"))
         self.assertIn('Ordered', call)
-        self.assertIsInstance(call, dict)
+        self.assertIsInstance(call, str)
         self.assertEqual(added_order.status_code, 200)
         self.assertTrue(added_order.json["Ordered"])
     

@@ -1,12 +1,15 @@
 language: python
 python:
-  - 3.6
+  - 3.6.5
 install:
   - pip install -r requirements.txt
-  - pip install coveralls
+  # - pip install coveralls
 
 script:
   - python --cov=.
+  - coverage
+  - coveralls
+  - coverage report
 
 after_success:
   - coveralls

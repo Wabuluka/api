@@ -46,7 +46,8 @@ class TestRun(unittest.TestCase):
         self.assertEqual(added_order.status_code, 201)
         # self.assertTrue(added_order.json["Ordered"])
     
-
+    def test_delete_order(self):
+        pass
 
 
 if __name__ == '__main__':

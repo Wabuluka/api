@@ -76,6 +76,12 @@ def updateOrder(id):
 # delete
 
 
+@app.route('/api/v1/orders/<int:id>', methods=['DELETE'])
+def deleteOrder(orderId):
+    order = [order for order in orders if order['id'] == orderId]
+    orders.remove(order[0])
+    return jsonify({'result': True})
+
 
 if __name__ == '__main__':
     app.run()

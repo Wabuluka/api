@@ -1,4 +1,4 @@
-from api.run import app
+from .run import app
 import unittest
 import json
 

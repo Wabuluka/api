@@ -1,6 +1,6 @@
 
 [![Build Status](https://travis-ci.com/Wabuluka/api.svg?branch=develop)](https://travis-ci.com/Wabuluka/api)
-[![Coverage Status](https://coveralls.io/repos/github/Wabuluka/api/badge.svg?branch=master)](https://coveralls.io/github/Wabuluka/api?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Wabuluka/api/badge.svg?branch=develop)](https://coveralls.io/github/Wabuluka/api?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 # CRUD API - Andela
 

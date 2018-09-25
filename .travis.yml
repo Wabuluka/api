@@ -1,19 +1,16 @@
 language: python
+
 python:
-  - 3.6.5
+- '3.6.5'
+sudo: false
+cache: pip3
 install:
-  - pip install -r requirements.txt
-  # - pip install coveralls
-
+- pip install -r requirements.txt
 script:
-  - python --cov=.
-  - coverage
-  - coveralls
-  - coverage report
-
+- pytest --cov=
+- coverage
+- coveralls
+- coverage report
 after_success:
-  - coveralls
-
-notifications:
-  emails:false
+- coveralls
   

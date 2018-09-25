@@ -1,4 +1,4 @@
-import run
+from api.run import app
 import unittest
 import json
 
@@ -8,7 +8,7 @@ class TestRun(unittest.TestCase):
     #client = run.app.test_client
 
     def setUp(self):
-       self.app = run.app.test_client()
+       self.app = app.test_client()
 
     def test_hello(self):
         #testing if the homepage can be reached

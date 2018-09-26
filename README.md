@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Wabuluka/api.svg?branch=master)](https://travis-ci.org/Wabuluka/api) 
+=======
+[![Build Status](https://travis-ci.com/Wabuluka/api.svg?branch=develop)](https://travis-ci.com/Wabuluka/api)
+>>>>>>> ac47d569bc17a8308c7d8157fdf1c8ee6a46857b
 [![Coverage Status](https://coveralls.io/repos/github/Wabuluka/api/badge.svg?branch=develop)](https://coveralls.io/github/Wabuluka/api?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 # CRUD API - Andela

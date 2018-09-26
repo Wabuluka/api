@@ -1,3 +1,5 @@
-.vscode
-.pytest_cache
-__pycache__
+/.vscode
+/.pytest_cache
+/__pycache__
+test.pyc
+run.pyc

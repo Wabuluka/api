@@ -38,6 +38,9 @@ install python (pip install python)
 ```
 Install Flask (pip install flask)
 ```
+```
+Install Flask (pip install flask_restful)
+```
 
 ```
 Install requirements (pip freeze > requirements.txt)
@@ -46,11 +49,11 @@ Install requirements (pip freeze > requirements.txt)
 ## Endpoints in the API
 |REQUEST TYPE| URL | DESCRIPTION |
 |------------|-----|-------------|
-|POST| /api/v1/orders/|Place a new order|
+|POST| /api/v1/order/<int:orderId>|Place a new order|
 |GET| /api/v1/orders |Get all orders|
-|GET| /api/v1/orders/<int:orderId> |Get specific order by orderId|
-|PUT| /api/v1/orders/<int:orderId> |Update a specified order by orderId|
-|DELETE| /api/v1/orders/<int:orderId> |Delete order|
+|GET| /api/v1/order/<int:orderId> |Get specific order by orderId|
+|PUT| /api/v1/order/<int:orderId> |Update a specified order by orderId|
+|DELETE| /api/v1/order/<int:orderId> |Delete order|
 
 ## Running the tests
 

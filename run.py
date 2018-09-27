@@ -6,10 +6,10 @@ api = Api(app)
 
 orders = []
 
-@app.route('/', methods=['GET'])
-def index(self):
-    self.message = 'You are welcome'
-    return jsonify{'Welcome': 'The app is working'}
+# @app.route('/', methods=['GET'])
+# def index(self):
+#     self.message = 'You are welcome'
+#     return jsonify{'Welcome': 'The app is working'}
 
 
 class AllOrders(Resource):

@@ -1,8 +1,7 @@
 */.vscode
 /.pytest_cache
 /__pycache__
-test.pyc
-run.pyc
+*.pyc
 runone.py
 runtwo.py
 runthree.py

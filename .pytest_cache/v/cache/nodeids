@@ -1,6 +1,1 @@
-[
-  "test_ord.py::TestRun::test_adding_order",
-  "test_ord.py::TestRun::test_empty_order",
-  "test_ord.py::TestRun::test_get_order",
-  "test_ord.py::TestRun::test_get_orders"
-]
+[]

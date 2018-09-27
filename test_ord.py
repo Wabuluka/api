@@ -18,7 +18,7 @@ class TestRun(unittest.TestCase):
     def test_empty_order(self):
         """testing for when no order is placed"""
         empty_order = self.app.get('')
-        self.assertEqual(empty_order.status_code, 404)
+        self.assertEqual(empty_order.status_code, 301)
 
     def test_get_order(self):
         """fetching only one order test"""

@@ -5,7 +5,9 @@ app = Flask(__name__)
 api = Api(app)
 
 orders = []
-
+class HomeTest(Resource):
+    def index(self):
+        return {'Goal': "You have arrived"}
 
 class AllOrders(Resource):
     """
@@ -57,6 +59,7 @@ class Order(Resource):
             order.update(data)
 
 
+api.add_resource(HomeTest, '/')
 #url that connects to the AllOrders class
 api.add_resource(AllOrders, '/api/v1/orders')
 #url that connects to the order class

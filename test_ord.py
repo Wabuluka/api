@@ -1,4 +1,4 @@
-from api.run import app
+from .run import app
 import unittest
 import json
 
@@ -8,7 +8,7 @@ class TestRun(unittest.TestCase):
     #client = app.test_client()
 
     def setUp(self):
-        self.app = app.test_client()
+        self.app = app.test_client
 
     def test_get_orders(self):
         """testing for all orders"""

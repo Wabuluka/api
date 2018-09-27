@@ -1,1 +1,6 @@
-{}
+{
+  "test_ord.py::TestRun::test_adding_order": true,
+  "test_ord.py::TestRun::test_empty_order": true,
+  "test_ord.py::TestRun::test_get_order": true,
+  "test_ord.py::TestRun::test_get_orders": true
+}

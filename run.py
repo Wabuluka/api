@@ -65,5 +65,5 @@ api.add_resource(AllOrders, '/api/v1/orders')
 #url that connects to the order class
 api.add_resource(Order, '/api/v1/order/<int:orderId>')
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

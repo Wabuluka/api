@@ -1,7 +1,5 @@
-*/.vscode
-/.pytest_cache
-/__pycache__
+__pycache__/*
+.pytest_cahce/*
+.vscode/*
+venv/*
 *.pyc
-runone.py
-runtwo.py
-runthree.py

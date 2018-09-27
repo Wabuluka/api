@@ -1,4 +1,4 @@
-from .run import app
+from api.run import app
 import unittest
 import json
 
@@ -8,12 +8,15 @@ class TestRun(unittest.TestCase):
     #client = run.app.test_client
 
     def setUp(self):
-       self.app = app.test_client()
+        self.app = app.test_client()
 
-    # def test_get_orders(self):
-    #     """testing for all orders"""
-    #     all_orders = self.app.get('api/v1/orders')
-    #     self.assertEqual(all_orders.status_code, 200)
+    def tearDown(self):
+        app.test_client = None
+
+    def test_get_orders(self):
+        """testing for all orders"""
+        all_orders = self.app.get('api/v1/orders')
+        self.assertEqual(all_orders.status_code, 200)
 
     # def test_empty_order(self):
     #     """testing for when no order is placed"""

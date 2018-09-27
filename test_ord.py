@@ -1,18 +1,18 @@
-from .run import app
+from api.run import app
 import unittest
 import json
 
 
-class TestRun(unittest.TestCase):
+class RunTest(unittest.TestCase):
     """Class to test the methods in the run module"""
     #client = app.test_client()
 
     def setUp(self):
-        self.app = app.test_client
+        self.app = app.test_client()
 
     def test_get_orders(self):
         """testing for all orders"""
-        all_orders = self.app.get('api/v1/orders')
+        all_orders = self.app.get('/api/v1/orders')
         self.assertEqual(all_orders.status_code, 200)
 
     def test_empty_order(self):
@@ -36,9 +36,11 @@ class TestRun(unittest.TestCase):
         added_order = self.app.post('api/v1/orders', content_type="application/json", data=json.dumps(post_data))
         self.assertEqual(added_order.status_code, 405)
 
+    
 
-        def tearDown(self):
-                app.test_client = None
+
+    def tearDown(self):
+        app.test_client = None
 
 if __name__ == '__main__':
     unittest.main()

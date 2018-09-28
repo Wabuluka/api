@@ -1,88 +1,72 @@
-from flask import Flask, jsonify, abort, request
+from flask import Flask, request
+from flask_restful import Resource, Api
 
-app =  Flask(__name__)
+app = Flask(__name__)
+api = Api(app)
 
-orders = [
-    {
-        'orderId': 1,
-        'orderTitle': u'Ghee',
-        'orderDescription': u'Just what i want'
-    },
-    {
-        'orderId': 2,
-        'orderTitle': u'Corn',
-        'orderDescription': u'I love corn too'
-    },
-    {
-        'orderId': 3,
-        'orderTitle': u'Milk',
-        'orderDescription': u'I took lots of milk'
-    }
-]
-#home page of the api
+orders = []
+
+# @app.route('/', methods=['GET'])
+# def index(self):
+#     self.message = 'You are welcome'
+#     return jsonify{'Welcome': 'The app is working'}
 
 
-@app.route('/')
-def index():
-    return "Hello"
+class AllOrders(Resource):
+    """
+    used to fetch all the orders available in the list
+    """
 
-#displaying all the orders in the list
-
-
-@app.route('/api/v1/orders', methods=['GET'])
-def getOrders():
-    return jsonify({'orders': orders})
-
-#returning the data of a single order
-@app.route('/api/v1/orders/<int:id>', methods=['GET'])
-def getOrder(id):
-    order = [order for order in orders if order['orderId'] == id]
-    if len(order) == 0:
-        abort(404)
-    return jsonify({'order': order[0]})
-#put
-
-#implementing the post method
+    def get(self):
+        return {'All orders available': orders}
 
 
-@app.route('/api/v1/orders', methods=['POST'])
-def createOrder():
-    if not request.json or not 'orderTitle' in request.json:
-        abort(400)
+class Order(Resource):
+    """
+        define functions to create, delete, get and update the order items
+    """
+    #getting one item
 
-    order = {
-        'orderId': orders[-1]['orderId']+1,
-        'orderTitle': request.json['orderTitle'],
-        'orderDescription': request.json.get('orderDescription', "")
-    }
+    def get(self, orderId):
+        order = next(filter(lambda x: x['orderId'] == orderId, orders), None)
+        return {'order': order}, 200 if order else 404
 
-    orders.append(order)
-    return jsonify({'order': order}), 201
+    #creating an order
+    def post(self, orderId):
+        if next(filter(lambda x: x['orderId'] == orderId, orders), None) is not None:
+            return {'message': "An order with Order ID '{}' already exists." .format(orderId)}, 400
+
+        data = request.get_json()
+        order = {'orderId': orderId,
+                 'orderTitle': data['orderTitle'],
+                 'orderDescription': data['orderDescription']}
+        orders.append(order)
+        return order, 201
+
+    #deleting an order
+    def delete(self, orderId):
+        global orders
+        orders = list(filter(lambda x: x['orderId'] != orderId, orders))
+        return {'message': 'Order has been successfuly deleted'}
+
+    #updating an order
+    def put(self, orderId):
+        data = request.get_json()
+        order = next(filter(lambda x: x['orderId'] == orderId, orders), None)
+        if order is None:
+            order = {'orderId': orderId,
+                     'orderTitle': data['orderTitle'],
+                     'orderDescription': data['orderDescription']}
+            orders.append(order)
+        else:
+            order.update(data)
+        return order
 
 
-@app.route('/api/v1/orders/<int:id>', methods=['PUT'])
-def updateOrder(id):
-    order = [order for order in orders if order['orderId'] == id]
-    if len(order) == 0:
-        abort(404)
+#url that connects to the AllOrders class
+api.add_resource(AllOrders, '/api/v1/orders')
+#url that connects to the order class
+api.add_resource(Order, '/api/v1/order/<int:orderId>')
 
-    if not request.json:
-        abort(400)
-
-    if 'orderTitle' in request.json and type(request.json['orderTitle']) != unicode:
-        abort(400)
-
-    if 'orderDescription' in request.json and type(request.json['orderDescription']) is not unicode:
-        abort(400)
-
-    order[0]['orderTitle'] = request.json.get(
-        'orderTitle', order[0]['orderTitle'])
-    order[0]['orderDescription'] = request.json.get(
-        'orderDescription', order[0]['orderDescription'])
-    return jsonify({'order': order[0]})
-#delete
-
-
-    
 if __name__ == '__main__':
     app.run(debug=True)

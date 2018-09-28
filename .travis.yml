@@ -1,13 +1,16 @@
 language: python
+
 python:
-  - 3.6
+- '3.6.5'
+# sudo: false
+# cache: pip3
 install:
-  - pip install -r requirements.txt
-  - pip install coveralls
-
+- pip install -r requirements.txt
 script:
-  - python -m unittest
-
+- pytest --cov=api
+- coverage
+- coveralls
+- coverage report
 after_success:
-  - coveralls
-
+- coveralls
+  

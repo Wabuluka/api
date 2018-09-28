@@ -60,6 +60,7 @@ class Order(Resource):
             orders.append(order)
         else:
             order.update(data)
+        return order
 
 
 #url that connects to the AllOrders class
